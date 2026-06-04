@@ -1,0 +1,59 @@
+﻿@{
+    ViewBag.Title = "Administrador";
+}
+<div class="container mt-5 text-center">
+
+    <br>
+
+    <h2 class="text-dark">Bienvenido @ViewBag.NombreCompletoAdminJuez</h2>
+
+    <br>
+    <br>
+
+    <p>Selecciona una opción</p>
+
+    <br>
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+    @*Ver resultados*@
+        <div class="col">
+            <a asp-controller="CrudAdminLog" asp-action="LeerResultados" class="text-decoration-none">
+               <div class="card shadow-sm hover:shadow-md transition">
+                   <div class="card-body">
+                       <h4 class="card-title">Ver evaluaciones</h4>
+                   </div>
+               </div>
+            </a>
+        </div>
+    @*Gestionar categorias*@
+        <div class="col">
+            @*Va directamente a Create donde salen mas opciones*@
+            <a asp-controller="CrudAdminLog" asp-action="CreateCategoriaV" class="text-decoration-none">
+               <div class="card shadow-sm hover:shadow-md transition">
+                   <div class="card-body">
+                       <h4 class="card-title">Gestionar categorias</h4>
+                   </div>
+               </div>
+            </a>
+        </div>
+    </div>
+
+    @*Gestionar categorias
+    <div class="col">
+        @*Va directamente a Create donde salen mas opciones
+        <a asp-controller="Dashboards" asp-action="ProbarConexion" class="text-decoration-none">
+            <div class="card shadow-sm hover:shadow-md transition">
+                <div class="card-body">
+                    <h4 class="card-title">Probar base de datos</h4>
+                </div>
+            </div>
+        </a>
+    </div>*@
+
+    <div class="text-center mt-4">
+        <a href="/Login/Index" class="btn btn-danger fw-bold" style="width: 150px;">
+            Regresar
+        </a>
+    </div>
+
+</div>

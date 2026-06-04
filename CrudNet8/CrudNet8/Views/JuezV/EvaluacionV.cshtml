@@ -1,0 +1,365 @@
+﻿@model CrudNet8.Models.ViewModels.CevaluacionVM
+{
+    ViewBag.Title = "Evaluar Proyecto";
+}
+
+<div class="container mt-5">
+
+    <!-- Mensaje -->
+@*     @if (ViewBag.Mensaje != null)
+    {
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>@ViewBag.Mensaje</strong>
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    } *@
+
+    @if (TempData["ErrorMessage1"] != null)
+    {
+        <div class="col-4 alert alert-danger text-center">
+            @TempData["ErrorMessage1"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage3"] != null)
+    {
+        <div class="col-4 alert alert-danger text-center">
+            @TempData["ErrorMessage3"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <form asp-action="GuardarCalificacion" method="post">
+
+        <!-- Datos generales -->
+        <div class="mb-3">
+            <label class="form-label">Categoría</label>
+            <select asp-for="CevCategoriaVM" class="form-select" required>
+                <option value="">-- Seleccione --</option>
+                <option value="STEAM">STEAM</option>
+                <option value="EmprendimientoInnovacion">Emprendimiento e Innovación</option>
+            </select>
+            <span asp-validation-for="CevCategoriaVM" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Proyecto</label>
+            <select asp-for="CevProyectoVM" class="form-select" required>
+                <option >.. Seleccione una opcion ..</option>
+                <option value="Mecanica">Mecánica</option>
+                <option value="Electronica">Electrónica</option>
+                <option value="DesarrolloWeb">Desarrollo Web</option>
+                <option value="Contabilidad">Contabilidad</option>
+            </select>
+            <span asp-validation-for="CevProyectoVM" class="text-danger"></span>
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CevEvaluadorVM" class="form-label">Nombre del juez</label>
+            <input asp-for="CevEvaluadorVM" type="text" class="form-control" placeholder="El nombre del juez es obligatorio">
+        </div>
+
+        <div class="mb-3">
+            <label asp-for="CevFechaVM" class="form-label">Fecha de evaluacion</label>
+            <input asp-for="CevFechaVM" type="date" class="form-control">
+            <span asp-validation-for="CevFechaVM" class="text-danger"></span>
+        </div>
+
+        <!-- RÚBRICA  -->
+        
+        <h4 class="mt-4">Rúbrica de Evalacion </h4>
+
+        <table class="table table-bordered text-center">
+            <thead class="table-dark">
+                <tr>
+                    <th style="width:40%">Criterio</th>
+                    <th>3 pts</th>
+                    <th>2 pts</th>
+                    <th>1 pt</th>
+                    <th>0 pts</th>
+                </tr>
+            </thead>
+            <tbody>
+               
+                <!-- I. Introducción -->
+
+                <tr class="table-primary"><td colspan="5"><b>I. Introducción</b></td></tr>
+                <tr>
+                    <td>a. Delimita los antecedentes del problema o necesidad por solventar</td>
+                    <td><input type="radio" name="Rubrica[Introduccion_a]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_a]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_a]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_a]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>b. Evidencia claridad en la definición del problema</td>
+                    <td><input type="radio" name="Rubrica[Introduccion_b]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_b]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_b]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_b]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>c. Fundamenta la relevancia o utilidad potencial del proyecto</td>
+                    <td><input type="radio" name="Rubrica[Introduccion_c]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_c]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_c]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_c]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>d. Define los criterios técnicos utilizados para la solución del problema</td>
+                    <td><input type="radio" name="Rubrica[Introduccion_d]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_d]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_d]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_d]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>e. Evidencia la viabilidad del proyecto</td>
+                    <td><input type="radio" name="Rubrica[Introduccion_e]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_e]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_e]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Introduccion_e]" value="0"></td>
+                </tr>
+
+                <!-- II. Marco teórico -->
+                
+                <tr class="table-primary"><td colspan="5"><b>II. Marco teórico</b></td></tr>
+                <tr>
+                    <td>a. Emplea variedad de fuentes de información confiables para sustentar el proyecto</td>
+                    <td><input type="radio" name="Rubrica[Marco_a]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Marco_a]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Marco_a]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Marco_a]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>b. Incluye citas bibliográficas relevantes de forma crítica</td>
+                    <td><input type="radio" name="Rubrica[Marco_b]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Marco_b]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Marco_b]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Marco_b]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>c. Emplea fuentes bibliográficas actualizadas</td>
+                    <td><input type="radio" name="Rubrica[Marco_c]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Marco_c]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Marco_c]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Marco_c]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>d. Define términos o conceptos relevantes</td>
+                    <td><input type="radio" name="Rubrica[Marco_d]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Marco_d]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Marco_d]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Marco_d]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>e. Sintetiza la información existente del tema</td>
+                    <td><input type="radio" name="Rubrica[Marco_e]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Marco_e]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Marco_e]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Marco_e]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>f. Evidencia la organización lógica de la información recopilada</td>
+                    <td><input type="radio" name="Rubrica[Marco_f]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Marco_f]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Marco_f]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Marco_f]" value="0"></td>
+                </tr>
+
+                <!-- III. Objetivos -->
+                
+                <tr class="table-primary"><td colspan="5"><b>III. Objetivos</b></td></tr>
+                <tr>
+                    <td>a. Presenta el objetivo general y al menos dos objetivos específicos</td>
+                    <td><input type="radio" name="Rubrica[Objetivos_a]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_a]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_a]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_a]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>b. Se plantean de forma clara, precisa y según estructura requerida</td>
+                    <td><input type="radio" name="Rubrica[Objetivos_b]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_b]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_b]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_b]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>c. Evidencia relación con la propuesta de solución planteada</td>
+                    <td><input type="radio" name="Rubrica[Objetivos_c]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_c]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_c]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Objetivos_c]" value="0"></td>
+                </tr>
+
+                <!-- IV. Metodología -->
+                
+                <tr class="table-primary"><td colspan="5"><b>IV. Metodología</b></td></tr>
+                <tr>
+                    <td>a. Presenta las etapas del proyecto en el cronograma</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_a]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_a]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_a]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_a]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>b. Cumple con las etapas establecidas en el cronograma</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_b]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_b]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_b]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_b]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>c. Describe paso a paso los procedimientos y técnicas utilizadas</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_c]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_c]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_c]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_c]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>d. Describe los recursos utilizados para la implementación del proyecto</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_d]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_d]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_d]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_d]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>e. Evidencia procesos de mejora continua</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_e]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_e]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_e]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_e]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>f. Evidencia ideas novedosas o aplicación creativa de conocimientos</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_f]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_f]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_f]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_f]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>g. Fundamenta los cálculos requeridos para las demostraciones</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_g]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_g]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_g]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_g]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>h. Incluye diseños y esquemas claros</td>
+                    <td><input type="radio" name="Rubrica[Metodologia_h]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_h]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_h]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Metodologia_h]" value="0"></td>
+                </tr>
+
+                
+                <!-- V. Discusión de resultados y conclusiones -->
+                
+                <tr class="table-primary"><td colspan="5"><b>V. Discusión de resultados y conclusiones</b></td></tr>
+                <tr>
+                    <td>a. Muestra concordancia entre los resultados obtenidos y los objetivos planteados</td>
+                    <td><input type="radio" name="Rubrica[Resultados_a]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_a]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_a]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_a]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>b. Presenta los datos mediante tablas, diagramas, figuras, gráficos, entre otros</td>
+                    <td><input type="radio" name="Rubrica[Resultados_b]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_b]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_b]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_b]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>c. Evidencia interpretación de los resultados desde visión analítica y reflexiva</td>
+                    <td><input type="radio" name="Rubrica[Resultados_c]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_c]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_c]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_c]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>d. Demuestra resultados (producto) aplicables y útiles en la vida real</td>
+                    <td><input type="radio" name="Rubrica[Resultados_d]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_d]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_d]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_d]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>e. Presenta coherencia entre los diseños y esquemas con respecto al prototipo desarrollado</td>
+                    <td><input type="radio" name="Rubrica[Resultados_e]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_e]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_e]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_e]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>f. Plantea conclusiones relevantes en relación con los objetivos, análisis de datos y prototipado</td>
+                    <td><input type="radio" name="Rubrica[Resultados_f]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_f]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_f]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_f]" value="0"></td>
+                </tr>
+                <tr>
+                    <td>g. Concluye sobre el impacto ambiental, social o económico del proyecto</td>
+                    <td><input type="radio" name="Rubrica[Resultados_g]" value="3"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_g]" value="2"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_g]" value="1"></td>
+                    <td><input type="radio" name="Rubrica[Resultados_g]" value="0"></td>
+                </tr>
+            </tbody>
+        </table>
+
+        <!-- Total dinámico -->
+        <div class="alert alert-info mt-3">
+            <strong>Total obtenido: </strong> <span id="puntajeTotal">0</span> / 100
+        </div>
+        <input type="hidden" id="CevPuntajeObtenidoVM" name="CevPuntajeObtenidoVM" value="0" />
+
+        <!-- Comentarios -->
+        <div class="mb-3">
+            <label asp-for="CevObservacionesVM" class="form-label">Observaciones</label>
+            <input asp-for="CevObservacionesVM" type="text" class="form-control" placeholder="">
+        </div>
+
+        <div class="text-center mt-2">
+            <button type="submit" class="btn btn-success fw-bold px-4">
+                Guardar Evaluación
+            </button>
+        </div>
+
+        <div class="text-center mt-2 mb-2">
+            <a asp-controller="Dashboards" asp-action="JuezLogV" class="btn btn-danger fw-bold d-inline-block px-4">
+                Regresar
+            </a>
+        </div>
+
+        <br>
+        <br>
+
+
+    </form>
+</div>
+
+<!-- Script para calcular el total -->
+<script>
+    const radios = document.querySelectorAll("input[type=radio]");
+    const totalSpan = document.getElementById("puntajeTotal");
+    const hiddenInput = document.getElementById("CevPuntajeObtenidoVM");
+    const maxPuntos = 87; // Suma de todos los valores máximos de la rúbrica
+    const maxEscala = 100; // Queremos que se muestre sobre 100
+
+    function calcularTotal() {
+        let total = 0;
+        document.querySelectorAll("input[type=radio]:checked").forEach(r => {
+            total += parseInt(r.value);
+        });
+
+        // Escalar al máximo deseado (100)
+        let totalEscalado = (total / maxPuntos) * maxEscala;
+        totalSpan.textContent = Math.round(totalEscalado);
+        hiddenInput.value = Math.round(totalEscalado);
+    }
+
+    calcularTotal();
+
+    radios.forEach(r => r.addEventListener("change", calcularTotal));
+</script>

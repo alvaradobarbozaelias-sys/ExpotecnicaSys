@@ -1,0 +1,32 @@
+﻿@{
+    ViewBag.Title = "Juez";
+}
+<div class="container mt-5 text-center">
+    <h2 class="text-dark">Bienvenido @ViewBag.NombreCompletoAdminJuez</h2>
+
+    @if (TempData["ErrorMessage2"] != null)
+    {
+        <div class="col-4 alert alert-success text-center">
+            @TempData["ErrorMessage2"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <div class="row justify-content-center mt-4">
+        <div class="col-md-4 mb-3">
+            <div class="card shadow p-4">
+                <h4 class="card-title">Evaluar Proyecto</h4>
+                <a asp-controller="CrudJuezLog" asp-action="EvaluacionV" class="btn btn-primary mt-3 fw-bold">
+                    Evaluar
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <a href="/Login/Index" class="btn btn-danger fw-bold" style="width: 150px;">
+            Regresar
+        </a>
+    </div>
+
+</div>

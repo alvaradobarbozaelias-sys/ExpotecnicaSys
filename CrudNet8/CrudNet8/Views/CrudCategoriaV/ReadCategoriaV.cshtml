@@ -1,0 +1,72 @@
+﻿@model List<CrudNet8.Models.ViewModels.RcategoriaVM>
+
+<div class ="table-responsive" style="max-height:450px; overflow:auto;">
+    <div class="text-center">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio1" onclick="location.href='@Url.Action("CreateCategoriaV", "CrudAdminLog")'">Crear nueva categoria</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio2" onclick="location.href='@Url.Action("LeerCategoria", "CrudAdminLog")'">Ver categorias</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3" onclick="location.href='@Url.Action("UpdateCategoriaV", "CrudAdminLog")'">Actualizar categoria</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio4" onclick="location.href='@Url.Action("DeleteCategoriaV", "CrudAdminLog")'">Borrar categoria</label>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <h3 class="text-center">Todas las categoria</h3>
+
+    <br>
+
+    @if (TempData["SuccessMessage3"] != null)
+    {
+        <div class="col-4 alert alert-success text-center">
+            @TempData["SuccessMessage3"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    <br>
+
+    <div class="table-responsive">
+        <table class="table table-bordered table-hover align-middle">
+            <thead class="table-primary text-center">
+                <tr>
+                    <th>Id</th>
+                    <th>Nombre de la categoria</th>
+                    <th>Descripcion</th>
+                </tr>
+            </thead>
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var item in Model)
+                    {
+                        <tr>
+                            <td>@item.RidCategoriaVM</td>
+                            <td>@item.RnombreCategoriaVM</td>
+                            <td>@item.RdescripcionCategoriaVM</td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="4" class="text-center text-muted">No hay categorias registradas.</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <!-- Botón -->
+        <div class="mb-3 text-center">
+            <a asp-controller="Dashboards" asp-action="RegresarDashboardAdmin" class="btn btn-danger">Regresar</a>
+        </div>
+    </div>
+
+</div>

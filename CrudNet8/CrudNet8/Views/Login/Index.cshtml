@@ -1,0 +1,57 @@
+﻿@using CrudNet8.Models.ViewModels
+@model LoginVM
+
+@{
+    ViewBag.Title = "Login";
+}
+
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+
+<div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card shadow p-4" style="width: 100%; max-width: 400px;">
+        <div class="text-center mb-4">
+            <img src="~/img/Logo Expotecnica.png" alt="Logo" class="img-fluid" style="max-height: 100px;" />
+            <h4 class="mt-2">Iniciar Sesión</h4>
+        </div>
+
+        <form asp-action="Index" method="post">
+            <div class="mb-3">
+                @Html.AntiForgeryToken()
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <label asp-for="Usernamein" class="form-label">Usuario</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-person-fill"></i></span>
+                    <input asp-for="Usernamein" class="form-control" />
+                </div>
+                <span asp-validation-for="Usernamein" class="text-danger"></span>
+            </div>
+
+            <div class="mb-3">
+                <label asp-for="Passwordin" class="form-label">Contraseña</label>
+                <div class="input-group">
+                    <span class="input-group-text"><i class="bi bi-lock-fill"></i></span>
+                    <input asp-for="Passwordin" type="password" class="form-control" />
+                </div>
+                <span asp-validation-for="Passwordin" class="text-danger"></span>
+            </div>
+
+            <button type="submit" class="btn-iniciar">Iniciar Sesión</button>
+
+            @if (ViewBag.Error != null)
+            {
+                <div class="alert alert-danger mt-3 text-center">
+                    @ViewBag.Error
+                </div>
+            }
+        </form>
+        <!-- Botón para regresar al layout -->
+
+        <div class="text-center mt-4">
+    <a href="/Home/Portada" class="btn-regresar">🏠 Regresar al Inicio</a>
+</div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

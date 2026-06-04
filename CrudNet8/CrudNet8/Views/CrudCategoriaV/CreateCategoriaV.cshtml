@@ -1,0 +1,96 @@
+﻿@model CrudNet8.Models.ViewModels.CcategoriaVM
+
+<div class="table-responsive" style="max-height:500px; overflow:auto;">
+    <div class="text-center">
+        <div class="btn-group" role="group" aria-label="Basic radio toggle button group">
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" checked>
+            <label class="btn btn-outline-primary" for="btnradio1" onclick="location.href='@Url.Action("CreateCategoriaV", "CrudAdminLog")'">Crear nueva categoria</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio2" onclick="location.href='@Url.Action("LeerCategoria", "CrudAdminLog")'">Ver categorias</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio3" onclick="location.href='@Url.Action("UpdateCategoriaV", "CrudAdminLog")'">Actualizar categoria</label>
+
+            <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off">
+            <label class="btn btn-outline-primary" for="btnradio4" onclick="location.href='@Url.Action("DeleteCategoriaV", "CrudAdminLog")'">Borrar categoria</label>
+        </div>
+    </div>
+
+    <br>
+    <br>
+
+    <h3 class="text-center">Crear nueva categoria</h3>
+
+    <br>
+
+    @if (TempData["ErrorMessage1"] != null)
+    {
+        <div class="col-4 alert alert-danger text-center">
+            @TempData["ErrorMessage1"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage2"] != null)
+    {
+        <div class="col-4 alert alert-danger text-center">
+            @TempData["ErrorMessage2"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["SuccessMessage3"] != null)
+    {
+        <div class="col-4 alert alert-success text-center">
+            @TempData["SuccessMessage3"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage4"] != null)
+    {
+        <div class="col-4 alert alert-danger text-center">
+            @TempData["ErrorMessage4"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+    @if (TempData["ErrorMessage5"] != null)
+    {
+        <div class="col-4 alert alert-danger text-center">
+            @TempData["ErrorMessage5"]
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+
+    <div>
+        <form asp-action="GuardarC" method="post">
+            @Html.AntiForgeryToken()
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <!-- Nombre categoria -->
+            <div class="mb-3">
+                <label asp-for="NombreCategoriaVM" class="form-label">Nombre de la categoria</label>
+                <input asp-for="NombreCategoriaVM" type="text" class="form-control" placeholder="Escriba el nombre de la nueva categoria">
+                <span asp-validation-for="NombreCategoriaVM" class="text-danger"></span>
+            </div>
+
+            <!-- Descripcion categoria -->
+            <div class="mb-3">
+                <label asp-for="DescripcionCategoriaVM" class="form-label">Descripción de categoria</label>
+                <input asp-for="DescripcionCategoriaVM" type="text" class="form-control" placeholder="La descripcion de la categoria es opcional">
+            </div>
+
+            <br>
+
+            <!-- Botón -->
+            <div class="mb-3 text-center">
+                <button asp-controller="CrudAdminLog" asp-action="GuardarCateg" type="submit" class="btn btn-success">Guardar</button>
+                <a asp-controller="CrudAdminLog" asp-action="CancelarCateg" class="btn btn-secondary">Cancelar</a>
+                <a asp-controller="Dashboards" asp-action="RegresarDashboardAdmin" class="btn btn-danger">Regresar</a>
+            </div>
+        </form>
+    </div>
+</div>
+

@@ -1,0 +1,377 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}
+
+.login-background {
+    background-image: url('/images/fondo-login.jpg'); /* ruta a tu imagen */
+    background-size: cover; /* que la imagen cubra todo el área */
+    background-position: center; /* centrada */
+    background-repeat: no-repeat; /* que no se repita */
+    height: 100vh; /* altura completa de la ventana */
+}
+
+
+.card.hero-card {
+    background: linear-gradient(135deg, #003366, #001f4d);
+    color: white;
+    border: none;
+    border-radius: 1rem;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+    .card.hero-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 12px 32px rgba(0, 0, 0, 0.4);
+    }
+
+    .card.hero-card .card-body {
+        padding: 3rem 2rem;
+    }
+
+    .card.hero-card .card-title {
+        font-size: 2rem;
+        font-weight: bold;
+        letter-spacing: 1px;
+        text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
+        font-family: 'Druck', sans-serif; /* Asegúrate de tener esta fuente cargada */
+    }
+
+.boton-ingresar {
+    background-color: #994F00;
+    border: none;
+    padding: 12px 30px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white !important;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+    .boton-ingresar:hover {
+        transform: scale(1.05);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+        color: white !important; /* Fuerza a que no cambie a azul */
+        text-decoration: none;
+    }
+
+.btn-regresar {
+    background-color: #cc0000; /* Rojo fuerte */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+    .btn-regresar:hover {
+        background-color: #a30000; /* Rojo más oscuro */
+        transform: scale(1.05);
+        color: white;
+        text-decoration: none;
+    }
+
+.btn-iniciar {
+    background-color: #007bff; /* Azul Bootstrap */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+    .btn-iniciar:hover {
+        background-color: #0069d9; /* Azul más oscuro */
+        transform: scale(1.05);
+        color: white;
+        text-decoration: none;
+    }
+
+#carouselInfo {
+    max-width: 900px;
+    margin: auto;
+    background-color: #000; /* fondo para que no se vea blanco detrás de imagen */
+    border-radius: 15px;
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.3);
+    overflow: hidden;
+}
+
+    /* Imágenes que se adaptan sin recorte */
+    #carouselInfo .carousel-item img {
+        width: 100%;
+        height: auto;
+        object-fit: contain; /* evita que se recorte */
+        display: block;
+        margin: auto;
+        transition: transform 0.4s ease;
+    }
+
+    /* Suave zoom opcional al pasar el mouse */
+    #carouselInfo .carousel-item:hover img {
+        transform: scale(1.02);
+    }
+
+    /* Mejoras visuales a flechas */
+    #carouselInfo .carousel-control-prev-icon,
+    #carouselInfo .carousel-control-next-icon {
+        background-color: rgba(0, 0, 0, 0.6);
+        border-radius: 50%;
+        padding: 1.2rem;
+        transition: background-color 0.3s ease;
+    }
+
+        #carouselInfo .carousel-control-prev-icon:hover,
+        #carouselInfo .carousel-control-next-icon:hover {
+            background-color: rgba(0, 0, 0, 0.9);
+        }
+
+/* */
+body {
+    background-color: #ffffff; /* Fondo completamente blanco */
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.card {
+    border: none;
+    border-radius: 15px;
+    background-color: #e0e0e0; /* Recuadro gris claro */
+    animation: fadeIn 0.6s ease-in-out;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.form-label {
+    font-weight: 600;
+    color: #333;
+}
+
+.input-group-text {
+    background-color: #e9ecef;
+    border-radius: 8px 0 0 8px;
+    border: 1px solid #ccc;
+}
+
+.form-control {
+    border-radius: 0 8px 8px 0;
+    border: 1px solid #ccc;
+    transition: all 0.3s ease-in-out;
+}
+
+    .form-control:focus {
+        border-color: #994F00;
+        box-shadow: 0 0 0 4px rgba(153, 79, 0, 0.1);
+    }
+
+.btn-primary {
+    background-color: #994F00; 
+    border: none;
+    border-radius: 8px;
+    transition: background-color 0.3s ease;
+}
+
+    .btn-primary:hover {
+        background-color: #7f4200;
+    }
+
+.text-center h4 {
+    color: #333;
+    font-weight: bold;
+}
+
+.alert-danger {
+    border-radius: 8px;
+    font-weight: 500;
+}
+
+img.img-fluid {
+    border-radius: 50%;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 576px) {
+    .card {
+        padding: 2rem 1rem;
+    }
+}
+
+/* Recuadros */
+.card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-radius: 12px;
+}
+
+    .card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+        cursor: pointer;
+    }
+
+/* Boton Guardar Evaluacion */
+.btn-guardar {
+    background-color: #007bff; /* Azul Bootstrap */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 1rem;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    width: 100%;
+}
+
+    .btn-guardar:hover {
+        background-color: #0056b3; /* Azul más oscuro al pasar el mouse */
+        transform: scale(1.02);
+    }
+
+.btn-cancelar {
+    background-color: #cc0000; /* Rojo fuerte */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    font-weight: bold;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    display: inline-block;
+    text-align: center;
+}
+
+.btn-cancelar:hover {
+    background-color: #a30000; /* Rojo más oscuro */
+    transform: scale(1.05);
+    color: white;
+    text-decoration: none;
+}
+
+/* CSS de los Filtros */
+.filtro-input {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+    .filtro-input:focus {
+        border-color: #003366;
+        box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+        outline: none;
+    }
+
+/* Cards de Resultados */
+
+filtro-input {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    padding: 10px;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+.filtro-input:focus {
+    border-color: #003366;
+    box-shadow: 0 0 5px rgba(0, 51, 102, 0.3);
+    outline: none;
+}
+
+/* Estilo para la card general */
+.card {
+    border-radius: 10px;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+/* Card-header personalizado */
+.card-header {
+    background-color: #003366 !important; /* Azul oscuro */
+    color: white !important;
+    padding: 1rem 1.25rem;
+    border-radius: 10px 10px 0 0;
+    text-align: center;
+}
+
+    /* Título dentro del card-header */
+    .card-header h5 {
+        font-weight: bold;
+        letter-spacing: 0.5px;
+        margin: 0;
+    }
+
+/* Tabla */
+.table {
+    border-radius: 0 0 10px 10px; /* Bordes redondeados abajo */
+    overflow: hidden;
+}
+
+    .table thead.table-primary {
+        background-color: #00509e; /* Un azul algo más claro para encabezado */
+        color: white;
+        text-align: center;
+    }
+
+.table-hover tbody tr:hover {
+    background-color: #d6e3f0; /* Azul claro hover */
+}
+
+/* Celdas centradas verticalmente */
+.table td,
+.table th {
+    vertical-align: middle;
+}
+
+/* Badges personalizados */
+.badge {
+    font-size: 0.95rem;
+    padding: 6px 12px;
+    border-radius: 6px;
+    background-color: #003366;
+    color: white;
+    font-weight: 600;
+}
+
+    /* Badge para calificación Excelente - verde */
+    .badge.bg-success {
+        background-color: #28a745 !important;
+        color: white;
+    }
