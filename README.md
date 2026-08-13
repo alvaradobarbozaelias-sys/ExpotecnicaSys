@@ -19,7 +19,7 @@ with a cloud database, enabling access from any device.
 - Azure (Cloud Deployment)
 
 ## Docs
-Paper AWS.doc 
+Paper Azure.doc 
 
 Explain how to deploy a web sistem with database on Azure.
 
